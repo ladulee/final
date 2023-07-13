@@ -1,0 +1,42 @@
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("/R.png");
+    background-size: 380px;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 650px;
+    border: 1px solid #f5f5f5;
+}
+.hour{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* margin-top: 50px; */
+    
+}
+
+.container.Working{
+    background-color: rgb(247, 188, 188);
+}
+.container.Relax{
+    background-color: rgb(133 123 123);
+}
+.time{
+    display: inline-block;
+    padding: 10px 10px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.2);
+    font-size: larger;
+}
+.modal-label label{
+    width: 100px;
+    margin: 10px;
+}
+.modal-label input{
+    border-radius: 170px;
+    height: 35px;
+    width: 100px;
+    border: 1px solid rgb(169 157 157);
+}
