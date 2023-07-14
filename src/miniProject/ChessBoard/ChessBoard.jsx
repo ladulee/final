@@ -6,7 +6,7 @@ import {Input} from "antd"
 function ChessBoard() {
   const[chessBoard, setChessBoard] = useState([])
   const [size, setSize] = useState(0)
-  const [color, setColor] = useState({colorOdd:'rgb(25, 148, 219)', colorEven:'rgb(250, 245, 248)'})
+  const [color, setColor] = useState({colorOdd:'#1994DB', colorEven:'#FAF5F8'})
   
   useEffect(() => {
     let board = [];
