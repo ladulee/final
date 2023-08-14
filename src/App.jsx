@@ -44,7 +44,7 @@ function App() {
             gap: 10,
             alignItems: "center",
             borderBottom: "1px solid #f5f5f5 ",
-            paddingRight: 20,
+            paddingRight: 25,
           }}
         >
           <Space>
@@ -156,6 +156,7 @@ function App() {
               padding: 50,
               minHeight: 280,
               background: colorBgContainer,
+              paddingTop: 10
             }}
           >
             <Switch>

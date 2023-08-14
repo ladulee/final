@@ -6,7 +6,7 @@ function HelloWorld(){
     const [value, setValue] = useState("");
     return(
         <div>
-            <div>
+            <div style={{marginTop: 10}}>
                 <label>Nhập: </label>
                 <Input type="text" style={{transform: 'translateY(8px)', width: 200}} onChange={(e)=>setValue(e.target.value)}/>
             </div>

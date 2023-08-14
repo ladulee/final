@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 function Pomodoro() {
   const [currentTime, setCurrentTime] = useState("");
-  const [count, setCount] = useState(100);
+  const [count, setCount] = useState(25*60);
   const [workingTime, setWorkingTime] = useState(10);
   const [relaxTime, setRelaxTime] = useState(5);
   const [mode, setMode] = useState("Get Ready!");
