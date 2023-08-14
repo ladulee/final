@@ -1,7 +1,7 @@
 import "./App.css";
 import {
   AuditOutlined,
-  CalculatorOutlined,
+  ReadOutlined ,
   SwapOutlined,
   FieldTimeOutlined,
   MenuOutlined,
@@ -17,11 +17,12 @@ import { useState } from "react";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 import HelloWorld from "./miniProject/HelloWorld/Helloworld";
 import ChessBoard from "./miniProject/ChessBoard/ChessBoard";
-import Calculator from "./miniProject/Calculator/Calculator";
 import ConvertMoney from "./miniProject/ConvertMoney/ConvertMoney";
 import Pomodoro from "./miniProject/Pomodoro/Pomodoro";
 import MindSweeper from "./miniProject/MineSweeper/MineSweeper";
 import Quotes from "./miniProject/Quotes/Quotes";
+import LanguageSwitcher from './components/LanguageSwitcher';
+import tr from './i18n';
 const { Header, Sider, Content, Footer } = Layout;
 const { Text } = Typography;
 
@@ -30,7 +31,8 @@ function App() {
     token: { colorBgContainer },
   } = theme.useToken();
   const [collapsed, setCollapsed] = useState(false);
-
+  const [lang, setLang] = useState("vi");
+  
   return (
     <BrowserRouter>
       <Layout>
@@ -62,24 +64,23 @@ function App() {
 
             <img
               style={{ width: 70, marginLeft: 10, marginTop: 23 }}
-              src={"/src/images/download2.jpg"}
+              src={"/download2.jpg"}
             />
             <Text style={{ color: "black", fontSize: 18 }} strong>
               Korea IT School
             </Text>
           </Space>
           <Space style={{ alignItems: "end", gap: 10 }}>
-            <img
-                style={{ transform: "translateY(8px)", marginLeft: 5 }}
-                src="/src/images/uk-24.png"
-              />
-            
-            <Button shape="circle"style={{ border: "none", fontSize: 24,verticalAlign: 'sub', height: 'fit-content' }}>
-              <BellOutlined />
+            <LanguageSwitcher lang={lang} languages={[
+                  {lang: 'vi', label: "VIE"}, 
+                  {lang: 'en', label: "ENG"}
+                ]} onClick={(newLang) => setLang(newLang) }/>
+             <Button shape="circle"style={{ border: "none", fontSize: 26,verticalAlign: 'sub', height: 'fit-content' }}>
+              <BellOutlined style={{marginRight: 5}}/>
             </Button>
             <Avatar
               size={32}
-              src={"/src/images/dog_avatar1.jpg"}
+              src={"/dog_avatar1.jpg"}
               icon={<UserOutlined />}
             />
             <Text style={{fontSize: 16}}>Đỗ Thị Hường</Text>
@@ -115,37 +116,33 @@ function App() {
                 {
                   key: "/helloworld",
                   icon: <AuditOutlined />,
-                  label: <Link to="/helloworld">Hello World</Link>,
+                  label: <Link to="/helloworld">{tr("Hello World", lang)}</Link>,
                 },
                 {
                   key: "/chessboard",
                   icon: <ChessboardIcon />,
-                  label: <Link to="/chessboard">Chess Board</Link>,
+                  label: <Link to="/chessboard">{tr("Chess Board", lang)}</Link>,
                 },
-                {
-                  key: "/calculator",
-                  icon: <CalculatorOutlined />,
-                  label: <Link to="/calculator">Calculator</Link>,
-                },
+              
                 {
                   key: "/convertMoney",
                   icon: <SwapOutlined />,
-                  label: <Link to="/convertMoney">Convert Money</Link>,
+                  label: <Link to="/convertMoney">{tr("Convert Money", lang)}</Link>,
                 },
                 {
                   key: "/pomodoro",
                   icon: <FieldTimeOutlined />,
-                  label: <Link to="/pomodoro">Pomodoro</Link>,
+                  label: <Link to="/pomodoro">{tr("Pomodoro", lang)}</Link>,
                 },
                 {
                   key: "/mindSweeper",
                   icon: <BombIcon />,
-                  label: <Link to="/mindSweeper">Mind Sweeper</Link>,
+                  label: <Link to="/mindSweeper">{tr("Minesweeper", lang)}</Link>,
                 },
                 {
                   key: "/quotes",
-                  icon: <BombIcon />,
-                  label: <Link to="/quotes">Quotes</Link>,
+                  icon: <ReadOutlined />,
+                  label: <Link to="/quotes">{tr("Quotes", lang)}</Link>,
                 },
               ]}
             />
@@ -165,9 +162,6 @@ function App() {
               </Route>
               <Route path="/chessboard">
                 <ChessBoard />
-              </Route>
-              <Route path="/calculator">
-                <Calculator />
               </Route>
               <Route path="/convertMoney">
                 <ConvertMoney />

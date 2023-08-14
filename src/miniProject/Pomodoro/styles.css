@@ -33,6 +33,7 @@
 .modal-label label{
     width: 100px;
     margin: 10px;
+    transform: translateY(0px);
 }
 .modal-label input{
     border-radius: 170px;
